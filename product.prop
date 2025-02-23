@@ -1,5 +1,8 @@
 # Moto
 ro.vendor.product.display=ThinkPhone by motorola
 
+# Google
+ro.opa.device_model_id=motorola-bronco
+
 # SKU specific properties
 import /product/etc/hardware.sku.${ro.boot.hardware.sku}.prop
