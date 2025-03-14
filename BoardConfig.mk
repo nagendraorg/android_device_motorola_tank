@@ -23,7 +23,6 @@ include device/motorola/sm8475-common/BoardConfigCommon.mk
 TARGET_BOOTLOADER_BOARD_NAME := bronco
 
 # HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/device_framework_matrix_bronco.xml
 ODM_MANIFEST_SKUS += sku-ds-nfc_ese-p
 ODM_MANIFEST_SKU-DS-NFC_ESE-P_FILES := $(DEVICE_PATH)/manifest_sku-ds-nfc_ese.xml
 ODM_MANIFEST_SKUS += sku-ss-nfc_ese-p
