@@ -1,4 +1,4 @@
 runtime_resource_overlay {
-    name: "FrameworksResBronco",
+    name: "FrameworksResDevice",
     vendor: true
 }
