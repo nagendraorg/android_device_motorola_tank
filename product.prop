@@ -1,2 +1,5 @@
 # Moto
 ro.vendor.product.display=ThinkPhone by motorola
+
+# SKU specific properties
+import /product/etc/hardware.sku.${ro.boot.hardware.sku}.prop

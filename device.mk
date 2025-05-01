@@ -77,6 +77,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ss-nfc_ese-p/android.hardware.se.omapi.ese.xml \
     frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ss-nfc_ese/android.hardware.se.omapi.ese.xml
 
+# Properties
+PRODUCT_PACKAGES += \
+    hardware.sku.XT2309-2.prop \
+    hardware.sku.XT2309-3.prop \
+    hardware.sku.XT2309-4.prop
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
