@@ -84,5 +84,28 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
+# VINTF
+DEVICE_MANIFEST_FILE += device/motorola/bronco/vintf/manifest.xml
+ODM_MANIFEST_SKUS += sku-ds-nfc_ese-p
+ODM_MANIFEST_SKU-DS-NFC_ESE-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc_ese.xml
+ODM_MANIFEST_SKUS += sku-ss-nfc_ese-p
+ODM_MANIFEST_SKU-SS-NFC_ESE-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc_ese.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+ODM_MANIFEST_SKUS += sku-ds-nfc_ese
+ODM_MANIFEST_SKU-DS-NFC_ESE_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc_ese.xml
+ODM_MANIFEST_SKUS += sku-ss-nfc_ese
+ODM_MANIFEST_SKU-SS-NFC_ESE_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc_ese.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+ODM_MANIFEST_SKUS += sku-ds-nfc-p
+ODM_MANIFEST_SKU-DS-NFC-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc.xml
+ODM_MANIFEST_SKUS += sku-ss-nfc-p
+ODM_MANIFEST_SKU-SS-NFC-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+ODM_MANIFEST_SKUS += sku-ds-nfc
+ODM_MANIFEST_SKU-DS-NFC_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc.xml
+ODM_MANIFEST_SKUS += sku-ss-nfc
+ODM_MANIFEST_SKU-SS-NFC_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/bronco/bronco-vendor.mk)
