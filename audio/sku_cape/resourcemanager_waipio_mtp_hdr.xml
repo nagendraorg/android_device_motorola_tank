@@ -95,8 +95,8 @@
             </usecase>
             <usecase>
                 <name>PAL_STREAM_DEEP_BUFFER</name>
-                <channels>2</channels>
-                <snd_device_name>handset-dual-mic</snd_device_name>
+                <channels>1</channels>
+                <snd_device_name>handset-mic</snd_device_name>
                 <custom-config key="invert">
                     <channels>2</channels>
                     <snd_device_name>handset-dual-mic-invert</snd_device_name>
@@ -104,10 +104,6 @@
                 <custom-config key="screen_record">
                     <channels>1</channels>
                     <snd_device_name>screen-record-mic</snd_device_name>
-                </custom-config>
-                <custom-config key="nn-sm">
-                    <channels>1</channels>
-                    <snd_device_name>handset-mic</snd_device_name>
                 </custom-config>
             </usecase>
             <usecase>
@@ -189,13 +185,7 @@
                 <custom-config key="external-device">
                     <snd_device_name>speaker-mic-external-device</snd_device_name>
                 </custom-config>
-                <custom-config key="external-device_nn-sm">
-                    <snd_device_name>speaker-mic-external-device</snd_device_name>
-                </custom-config>
                 <custom-config key="game_mic">
-                    <snd_device_name>game-mic</snd_device_name>
-                </custom-config>
-                <custom-config key="game_mic_nn-sm">
                     <snd_device_name>game-mic</snd_device_name>
                 </custom-config>
             </usecase>
