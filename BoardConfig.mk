@@ -23,23 +23,23 @@ include device/motorola/sm8475-common/BoardConfigCommon.mk
 TARGET_BOOTLOADER_BOARD_NAME := bronco
 
 # HIDL
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest.xml
 ODM_MANIFEST_SKUS += sku-ds-nfc_ese-p
-ODM_MANIFEST_SKU-DS-NFC_ESE-P_FILES := $(DEVICE_PATH)/manifest_sku-ds-nfc_ese.xml
+ODM_MANIFEST_SKU-DS-NFC_ESE-P_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ds-nfc_ese.xml
 ODM_MANIFEST_SKUS += sku-ss-nfc_ese-p
-ODM_MANIFEST_SKU-SS-NFC_ESE-P_FILES := $(DEVICE_PATH)/manifest_sku-ss-nfc_ese.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_SKU-SS-NFC_ESE-P_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ss-nfc_ese.xml $(COMMON_PATH)/vintf/manifest_ss.xml
 ODM_MANIFEST_SKUS += sku-ds-nfc_ese
-ODM_MANIFEST_SKU-DS-NFC_ESE_FILES := $(DEVICE_PATH)/manifest_sku-ds-nfc_ese.xml
+ODM_MANIFEST_SKU-DS-NFC_ESE_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ds-nfc_ese.xml
 ODM_MANIFEST_SKUS += sku-ss-nfc_ese
-ODM_MANIFEST_SKU-SS-NFC_ESE_FILES := $(DEVICE_PATH)/manifest_sku-ss-nfc_ese.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_SKU-SS-NFC_ESE_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ss-nfc_ese.xml $(COMMON_PATH)/vintf/manifest_ss.xml
 ODM_MANIFEST_SKUS += sku-ds-nfc-p
-ODM_MANIFEST_SKU-DS-NFC-P_FILES := $(DEVICE_PATH)/manifest_sku-ds-nfc.xml
+ODM_MANIFEST_SKU-DS-NFC-P_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ds-nfc.xml
 ODM_MANIFEST_SKUS += sku-ss-nfc-p
-ODM_MANIFEST_SKU-SS-NFC-P_FILES := $(DEVICE_PATH)/manifest_sku-ss-nfc.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_SKU-SS-NFC-P_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ss-nfc.xml $(COMMON_PATH)/vintf/manifest_ss.xml
 ODM_MANIFEST_SKUS += sku-ds-nfc
-ODM_MANIFEST_SKU-DS-NFC_FILES := $(DEVICE_PATH)/manifest_sku-ds-nfc.xml
+ODM_MANIFEST_SKU-DS-NFC_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ds-nfc.xml
 ODM_MANIFEST_SKUS += sku-ss-nfc
-ODM_MANIFEST_SKU-SS-NFC_FILES := $(DEVICE_PATH)/manifest_sku-ss-nfc.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_SKU-SS-NFC_FILES := $(DEVICE_PATH)/vintf/manifest_sku-ss-nfc.xml $(COMMON_PATH)/vintf/manifest_ss.xml
 
 # Kernel
 TARGET_KERNEL_CONFIG += \
