@@ -19,8 +19,8 @@ vendor/lib/rfsa/adsp/libbitml_nsp_skel.so
 vendor/lib/rfsa/adsp/libbitml_nsp_v2_skel.so
 vendor/lib/rfsa/adsp/libcamera_nn_skel.so
 vendor/lib/rfsa/adsp/libhdr_skel.so
-vendor/lib/rfsa/adsp/libmctfengine_skel.so
 vendor/lib/rfsa/adsp/libhme_dsp_skel.so
+vendor/lib/rfsa/adsp/libmctfengine_skel.so
 
 # Audio
 vendor/etc/aualgo/aualgo_sst.conf
@@ -28,18 +28,20 @@ vendor/lib64/libaualgo_sst_component.so
 
 # Camera
 vendor/bin/hw/vendor.qti.camera.provider@2.7-service_64
-vendor/etc/init/vendor.qti.camera.provider@2.7-service_64.rc
 vendor/etc/eva/facedetection/model3.dat
 vendor/etc/face3d/qcnn_concat_file_model-0324_2_encrypted
-vendor/lib64/bronco_arcsoft_portrait_super_night_se_raw.bin
-vendor/lib64/bronco_arcsoft_super_night_raw.bin
-vendor/lib64/bronco_arcsoft_super_night_se_raw.bin
+vendor/etc/init/vendor.qti.camera.provider@2.7-service_64.rc
 vendor/lib64/camera/arcsoft_dc_calibration_u.bin
 vendor/lib64/camera/com.qti.ois.mot_dw9784.so
 vendor/lib64/camera/fdconfigpreview.bin
 vendor/lib64/camera/fdconfigpreviewlite.bin
 vendor/lib64/camera/fdconfigvideo.bin
 vendor/lib64/camera/fdconfigvideolite.bin
+vendor/lib64/hw/camera.qcom.so
+vendor/lib64/hw/com.qti.chi.override.so
+vendor/lib64/bronco_arcsoft_portrait_super_night_se_raw.bin
+vendor/lib64/bronco_arcsoft_super_night_raw.bin
+vendor/lib64/bronco_arcsoft_super_night_se_raw.bin
 vendor/lib64/com.qti.chiusecaseselector.so
 vendor/lib64/com.qti.qseeaon.so
 vendor/lib64/com.qti.qseeutils.so
@@ -50,8 +52,6 @@ vendor/lib64/com.qualcomm.mcx.linearmapper.so
 vendor/lib64/com.qualcomm.mcx.policy.mfl.so
 vendor/lib64/com.qualcomm.mcx.policy.xr.so
 vendor/lib64/com.qualcomm.qti.mcx.usecase.extension.so
-vendor/lib64/hw/camera.qcom.so
-vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libAncHumanSegFigureFusion.so
 vendor/lib64/libFace3DTA.so
 vendor/lib64/libFace3D_hlos.so
@@ -292,13 +292,13 @@ vendor/firmware/mot_dw9784.prog
 # Camera - sensor
 vendor/lib64/camera/com.qti.sensor.mot_gc02m1b.so
 vendor/lib64/camera/com.qti.sensor.mot_hi1336.so
-vendor/lib64/camera/com.qti.sensor.mot_ov50a.so
 vendor/lib64/camera/com.qti.sensor.mot_ov32b40.so
+vendor/lib64/camera/com.qti.sensor.mot_ov50a.so
 
 # Camera - sensormodule
-vendor/lib64/camera/com.qti.sensormodule.mot_bronco_ov32b40_qtech.bin
 vendor/lib64/camera/com.qti.sensormodule.mot_bronco_gc02m1b_tsp.bin
 vendor/lib64/camera/com.qti.sensormodule.mot_bronco_hi1336_qtech.bin
+vendor/lib64/camera/com.qti.sensormodule.mot_bronco_ov32b40_qtech.bin
 vendor/lib64/camera/com.qti.sensormodule.mot_bronco_ov50a_sunny.bin
 
 # Camera - tuned
@@ -359,16 +359,16 @@ system_ext/bin/motsettings
 system_ext/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk
 
 # Moto Permissions
-product/etc/permissions/com.motorola.camera3.xml:vendor/etc/permissions/com.motorola.camera3.xml
-product/etc/permissions/com.motorola.camera3.content.ai.xml:vendor/etc/permissions/com.motorola.camera3.content.ai.xml
 product/etc/permissions/com.motorola.camera3.bronco.xml:vendor/etc/permissions/com.motorola.camera3.bronco.xml
+product/etc/permissions/com.motorola.camera3.content.ai.xml:vendor/etc/permissions/com.motorola.camera3.content.ai.xml
 product/etc/permissions/com.motorola.camera3.lens.xml:vendor/etc/permissions/com.motorola.camera3.lens.xml
+product/etc/permissions/com.motorola.camera3.xml:vendor/etc/permissions/com.motorola.camera3.xml
 product/etc/permissions/com.motorola.moto-uirefresh.xml
 
 # NFC - configs
-vendor/etc/libnfc-nci_PN560.conf
 vendor/etc/libnfc-PN560.conf
 vendor/etc/libnfc-SN220-UICC.conf
+vendor/etc/libnfc-nci_PN560.conf
 
 # NFC firmware
 vendor/lib64/libpn560_fw.so
@@ -383,8 +383,6 @@ vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client.so
 
 # Sensor - configs
-vendor/etc/sensors/als_comp_config.xml
-vendor/etc/sensors/als_comp_tf.config
 vendor/etc/sensors/config/icm4x6xx_0.json
 vendor/etc/sensors/config/icp201xx_0.json
 vendor/etc/sensors/config/mot_camgest.json
@@ -436,6 +434,8 @@ vendor/etc/sensors/config/waipio_default_sensors.json
 vendor/etc/sensors/config/waipio_dynamic_sensors.json
 vendor/etc/sensors/config/waipio_irq.json
 vendor/etc/sensors/config/waipio_power_0.json
+vendor/etc/sensors/als_comp_config.xml
+vendor/etc/sensors/als_comp_tf.config
 vendor/etc/sensors/sns_reg_config
 
 # Thermal engine - configs
@@ -444,6 +444,6 @@ vendor/etc/thermal-engine.conf
 
 # Touchscreen firmware
 vendor/firmware/csot_goodix_cfg_group.bin
-vendor/firmware/tianma_goodix_cfg_group.bin
-vendor/firmware/goodix-tianma-gt9916P-22121609-639cb3f-bronco.bin
 vendor/firmware/goodix-csot-gt9916P-22121606-639cfe5-bronco.bin
+vendor/firmware/goodix-tianma-gt9916P-22121609-639cb3f-bronco.bin
+vendor/firmware/tianma_goodix_cfg_group.bin
