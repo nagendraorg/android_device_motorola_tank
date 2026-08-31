@@ -1,13 +1,13 @@
 # Audio
+vendor.audio.hac_on=false
+vendor.audio.min.dr0=5.1
+vendor.audio.max.dr0=6.9
+vendor.audio.min.dr1=5.1
+vendor.audio.max.dr1=6.9
+vendor.audio.min.temp=20.0
+vendor.audio.max.temp=60.0
 ro.vendor.audio.hdr.record.support=true
 vendor.audio.hdr.record.enable=true
-vendor.audio.max.dr0=6.9
-vendor.audio.max.dr1=6.9
-vendor.audio.max.temp=60.0
-vendor.audio.min.dr0=5.1
-vendor.audio.min.dr1=5.1
-vendor.audio.min.resistance=6.35,6.79
-vendor.audio.min.temp=20.0
 vendor.audio.out_device_tag.supported=true
 vendor.audio.volte_band_limit.supported=true
 
@@ -15,13 +15,22 @@ vendor.audio.volte_band_limit.supported=true
 persist.vendor.camera.physical.num=4
 
 # Display
+ro.vendor.display.foss=1
+ro.vendor.display.sensortype=2
+vendor.display.foss.config=1
+vendor.display.foss.config_path=/vendor/etc/display/FOSSConfig.xml
 vendor.display.override_doze_mode=1
 
 # Fingerprint
-ro.vendor.hw.fps=true
+ro.hardware.fingerprint=goodix
+
+
+# NFC
+persist.vendor.nfc.st.multisim_fw_config=true
 
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 persist.vendor.sensors.mot_tap=true
 ro.vendor.sensors.glance_approach=false
+ro.vendor.sensors.mot_ltv=true
 ro.vendor.sensors.prox_for_call=false

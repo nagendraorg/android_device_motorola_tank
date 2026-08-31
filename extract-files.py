@@ -76,12 +76,11 @@ blob_fixups: blob_fixups_user_type = {
         'vendor.qti.hardware.display.config-V2-ndk_platform.so',
         'vendor.qti.hardware.display.config-V2-ndk.so',
     ),
+    'system_ext/lib64/libwfdnative.so': blob_fixup()
+        .add_needed('libinput_shim.so'),
     'vendor/lib64/libmot_chi_desktop_helper.so': blob_fixup()
         .add_needed('libgui_buffer_shim_vendor.so'),
-    'vendor/lib64/nfc_nci.nqx.default.hw.so': blob_fixup().replace_needed(
-        'libbase.so',
-        'libbase-v33.so',
-    ),
+
     (
         'vendor/bin/hw/vendor.qti.camera.provider@2.7-service_64',
         'vendor/lib64/camx.device@3.4-ext-impl.so',
@@ -104,7 +103,7 @@ extract_fns: extract_fns_user_type = {
 }
 
 module = ExtractUtilsModule(
-    'bronco',
+    'tank',
     'motorola',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,

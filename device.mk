@@ -15,19 +15,19 @@
 #
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2400
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 2712
+TARGET_SCREEN_WIDTH := 1220
 
 # Screen
-TARGET_SCREEN_DENSITY := 400
+TARGET_SCREEN_DENSITY := 450
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := 400dpi
+PRODUCT_AAPT_PREF_CONFIG := 480dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 BOARD_SHIPPING_API_LEVEL := 31
-PRODUCT_SHIPPING_API_LEVEL := 33
+PRODUCT_SHIPPING_API_LEVEL := 34
 
 # Inherit from motorola sm8475-common
 $(call inherit-product, device/motorola/sm8475-common/sm8475.mk)
@@ -35,8 +35,9 @@ $(call inherit-product, device/motorola/sm8475-common/sm8475.mk)
 # Overlay
 PRODUCT_PACKAGES += \
     FrameworksResDevice \
-    LineageSdkDevice \
-    LineageSystemUIDevice \
+    LineageSdkResDevice \
+    LineageSystemUIResDevice \
+    SettingsResDevice \
     SystemUIResDevice
 
 # Audio
@@ -57,57 +58,40 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    init.mmi.overlay.rc
+    init.mmi.overlay.rc \
+    init.vendor.st21nfc.rc
+
+
+# LiveDisplay
+$(call soong_config_set_bool,livedisplay_sysfs,enable_af,true)
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-service.nxp \
+    android.hardware.nfc-service.st \
     com.android.nfc_extras \
-    nqnfcinfo \
     Tag
 
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ds-nfc_ese-p/android.hardware.nfc.ese.xml \
-    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ds-nfc_ese/android.hardware.nfc.ese.xml \
-    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ss-nfc_ese-p/android.hardware.nfc.ese.xml \
-    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ss-nfc_ese/android.hardware.nfc.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ds-nfc_ese-p/android.hardware.se.omapi.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ds-nfc_ese/android.hardware.se.omapi.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ss-nfc_ese-p/android.hardware.se.omapi.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku-ss-nfc_ese/android.hardware.se.omapi.ese.xml
+# PowerShare
+PRODUCT_PACKAGES += \
+    vendor.lineage.powershare-service.default
+
+$(call soong_config_set,lineage_powershare,powershare_path,/sys/class/power_supply/wireless/device/tx_mode)
 
 # Properties
 PRODUCT_PACKAGES += \
-    hardware.sku.XT2309-2.prop \
-    hardware.sku.XT2309-3.prop \
-    hardware.sku.XT2309-4.prop
+    hardware.sku.XT2407.prop
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # VINTF
-DEVICE_MANIFEST_FILE += device/motorola/bronco/vintf/manifest.xml
-ODM_MANIFEST_SKUS += sku-ds-nfc_ese-p
-ODM_MANIFEST_SKU-DS-NFC_ESE-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc_ese.xml
-ODM_MANIFEST_SKUS += sku-ss-nfc_ese-p
-ODM_MANIFEST_SKU-SS-NFC_ESE-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc_ese.xml \
-    device/motorola/sm8475-common/vintf/manifest_ss.xml
-ODM_MANIFEST_SKUS += sku-ds-nfc_ese
-ODM_MANIFEST_SKU-DS-NFC_ESE_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc_ese.xml
-ODM_MANIFEST_SKUS += sku-ss-nfc_ese
-ODM_MANIFEST_SKU-SS-NFC_ESE_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc_ese.xml \
-    device/motorola/sm8475-common/vintf/manifest_ss.xml
-ODM_MANIFEST_SKUS += sku-ds-nfc-p
-ODM_MANIFEST_SKU-DS-NFC-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc.xml
-ODM_MANIFEST_SKUS += sku-ss-nfc-p
-ODM_MANIFEST_SKU-SS-NFC-P_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc.xml \
-    device/motorola/sm8475-common/vintf/manifest_ss.xml
-ODM_MANIFEST_SKUS += sku-ds-nfc
-ODM_MANIFEST_SKU-DS-NFC_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ds-nfc.xml
-ODM_MANIFEST_SKUS += sku-ss-nfc
-ODM_MANIFEST_SKU-SS-NFC_FILES := $(LOCAL_PATH)/vintf/manifest_sku-ss-nfc.xml \
+ODM_MANIFEST_SKUS += dn n
+ODM_MANIFEST_DN_FILES := \
+    $(LOCAL_PATH)/vintf/manifest_dn.xml
+ODM_MANIFEST_N_FILES := \
+    $(LOCAL_PATH)/vintf/manifest_n.xml \
     device/motorola/sm8475-common/vintf/manifest_ss.xml
 
 # Inherit from vendor blobs
-$(call inherit-product, vendor/motorola/bronco/bronco-vendor.mk)
+$(call inherit-product, vendor/motorola/tank/tank-vendor.mk)
+

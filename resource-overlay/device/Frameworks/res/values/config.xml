@@ -4,13 +4,17 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
+         manually by the user. Off by default, since the expected haptic feedback may not be
+         available on some devices. -->
+    <bool name="config_enableHapticTextHandle">true</bool>
+
     <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
-    <integer-array name="config_availableColorModes">
-        <item>0</item> <!-- COLOR_MODE_NATURAL -->     <!-- This uses colorimetric render intents-->
-        <item>1</item> <!-- COLOR_MODE_BOOSTED -->     <!-- This applies a 10% boost using the PCC-->
-        <item>2</item> <!-- COLOR_MODE_SATURATED -->
-        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->   <!-- This uses enhanced render intents-->
-    </integer-array>
+    <array name="config_availableColorModes">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </array>
 
     <!-- Indicate whether to allow the device to suspend when the screen is off
          due to the proximity sensor.  This resource should only be set to true
@@ -23,18 +27,18 @@
          -2 is invalid so setting will resort to int value specified above.
          Set this to 0.0 to allow screen to go to minimal brightness.
          The user is forbidden from setting the brightness below this level. -->
-    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.03418803</item>
+    <item format="float" name="config_screenBrightnessSettingMinimumFloat" type="dimen">0.026507</item>
 
     <!-- Maximum screen brightness allowed by the power manager.
          -2 is invalid so setting will resort to int value specified above.
          Set this to 1.0 for maximum brightness range.
          The user is forbidden from setting the brightness above this level. -->
-    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+    <item format="float" name="config_screenBrightnessSettingMaximumFloat" type="dimen">1.0</item>
 
     <!-- Default screen brightness setting set.
          -2 is invalid so setting will resort to int value specified above.
          Must be in the range specified by minimum and maximum. -->
-    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.38188976</item>
+    <item format="float" name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.38188976</item>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
@@ -47,7 +51,7 @@
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.03418803</item>
+    <item format="float" name="config_screenBrightnessDimFloat" type="dimen">0.026507</item>
 
     <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
@@ -69,21 +73,22 @@
          backlight values for lux levels between these control points.
 
          Must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLevels">
+    <array name="config_autoBrightnessLevels">
         <item>2</item>
         <item>4</item>
-        <item>5</item>
         <item>10</item>
+        <item>20</item>
         <item>40</item>
         <item>100</item>
         <item>325</item>
         <item>1250</item>
         <item>3500</item>
-        <item>5500</item>
+        <item>5000</item>
         <item>10000</item>
-        <item>50000</item>
+        <item>30000</item>
         <item>100000</item>
-    </integer-array>
+        <item>200000</item>
+    </array>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
          in the config_autoBrightnessLevels array. The display brightness is defined as the measured
@@ -101,39 +106,41 @@
         <item>3</item>
         <item>7</item>
         <item>10</item>
-        <item>12</item>
         <item>24</item>
+        <item>64</item>
         <item>82</item>
-        <item>96</item>
-        <item>130</item>
+        <item>90</item>
+        <item>105</item>
         <item>192</item>
-        <item>325</item>
+        <item>412</item>
         <item>500</item>
         <item>700</item>
         <item>800</item>
-        <item>1000</item>
+        <item>1200</item>
+        <item>1350</item>
     </array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
          values in the config_screenBrightnessNits array.
 
          This array should be equal in size to config_screenBrightnessBacklight. -->
-    <integer-array name="config_screenBrightnessBacklight">
-        <item>9</item>
-        <item>26</item>
+    <array name="config_screenBrightnessBacklight">
+        <item>7</item>
+        <item>27</item>
         <item>34</item>
-        <item>36</item>
-        <item>52</item>
-        <item>95</item>
-        <item>102</item>
-        <item>118</item>
-        <item>141</item>
-        <item>175</item>
-        <item>219</item>
-        <item>233</item>
-        <item>241</item>
+        <item>53</item>
+        <item>86</item>
+        <item>96</item>
+        <item>101</item>
+        <item>108</item>
+        <item>143</item>
+        <item>200</item>
+        <item>222</item>
+        <item>231</item>
+        <item>235</item>
+        <item>253</item>
         <item>255</item>
-    </integer-array>
+    </array>
 
     <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
          values in the config_screenBrightnessBacklight array.  On OLED displays these  values
@@ -146,24 +153,25 @@
         <item>3</item>
         <item>7</item>
         <item>10</item>
-        <item>12</item>
         <item>24</item>
+        <item>64</item>
         <item>82</item>
-        <item>96</item>
-        <item>130</item>
+        <item>90</item>
+        <item>105</item>
         <item>192</item>
-        <item>325</item>
+        <item>412</item>
         <item>500</item>
         <item>700</item>
         <item>800</item>
-        <item>1000</item>
+        <item>1200</item>
+        <item>1350</item>
     </array>
 
     <!-- MMS user agent string, for example OemNameDeviceName
          If the string contains a '%s' format string then that substring will be replaced
          with the value of Build.MODEL , ie
          <string name="config_mms_user_agent">OemName%s</string> -->
-    <string name="config_mms_user_agent" translatable="false">ThinkPhonebymotorola</string>
+    <string name="config_mms_user_agent" translatable="false">motorolaedge50</string>
 
     <!-- MMS user agent prolfile url, for example https://uaprof.oem_name.com/DeviceName.xml
          if the string contains a '%s' format string then that substring will be replaced
@@ -176,6 +184,9 @@
 
     <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
     <string name="config_dozeDoubleTapSensorType" translatable="false">org.lineageos.sensor.double_tap</string>
+
+    <!-- Whether to enable fp unlock when screen turns off on udfps devices -->
+    <bool name="config_screen_off_udfps_enabled">true</bool>
 
     <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
     <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
@@ -252,7 +263,7 @@
 
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
-    <string name="config_mainBuiltInDisplayCutout" translatable="false">M -30,0 L 30,0 L 30,110 L -30,110 Z</string>
+    <string name="config_mainBuiltInDisplayCutout" translatable="false">M -56,0 L 56,0 L 56,118 L -56,118 Z</string>
 
     <!-- The default refresh rate for a given device. Change this value to set a higher default
          refresh rate. If the hardware composer on the device supports display modes with a higher
@@ -268,7 +279,7 @@
          the framework from using higher refresh rates, even if display modes with higher refresh
          rates are available from hardware composer. Only has an effect if the value is
          non-zero. -->
-    <integer name="config_defaultPeakRefreshRate">144</integer>
+    <integer name="config_defaultPeakRefreshRate">120</integer>
 
     <!-- The display uses different gamma curves for different refresh rates. It's hard for panel
          vendors to tune the curves to have exact same brightness for different refresh rate. So
@@ -283,32 +294,38 @@
          A negative brightness or lux value means that only one threshold should be used - e.g. if
          the brightness value is negative, only the lux threshold is applied. -->
     <!-- Low zone brightness thresholds in the range [0, 255] -->
-    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
+    <array name="config_brightnessThresholdsOfPeakRefreshRate" translatable="false">
         <item>77</item>
         <item>62</item>
-    </integer-array>
+    </array>
 
     <!-- Low zone lux thresholds -->
-    <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
+    <array name="config_ambientThresholdsOfPeakRefreshRate" translatable="false">
         <item>70</item>
         <item>-1</item>
-    </integer-array>
+    </array>
 
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
          when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
          where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
          and Strength as defined in Authenticators.java -->
-    <string-array name="config_biometric_sensors" translatable="false">
-        <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
-    </string-array>
+    <array name="config_biometric_sensors" translatable="false">
+        <item>0:2:15</item>
+    </array>
 
     <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
-    <integer-array name="config_udfps_sensor_props">
-        <item>540</item> <!-- sensorLocationX -->
-        <item>2167</item> <!-- sensorLocationY -->
-        <item>91</item> <!-- sensorRadius -->
-    </integer-array>
+    <array name="config_udfps_sensor_props" translatable="false">
+        <item>610</item>
+        <item>2240</item>
+        <item>110</item>
+    </array>
 
-    <!-- Whether to enable fp unlock when screen turns off on udfps devices -->
-    <bool name="config_screen_off_udfps_enabled">true</bool>
+    <!-- Freeform Multi-Window & Desktop Mode support -->
+    <bool name="config_supportsFreeformWindowManagement">true</bool>
+
+    <!-- Multi-level Flashlight brightness steps -->
+    <integer name="config_torch_brightness_levels">5</integer>
+
+    <!-- Quick Doze deep sleep constants (Transition to deep sleep in 3 min) -->
+    <string name="config_device_idle_constants" translatable="false">inactive_to=180000,sensing_to=0,locating_to=0,location_accuracy=20.0,motion_inactive_to=0,idle_after_inactive_to=0,idle_pending_to=180000,max_idle_pending_to=360000,idle_pending_factor=2.0,quick_doze_delay_to=60000,idle_to=3600000,max_idle_to=21600000,idle_factor=2.0,min_time_to_alarm=3600000,max_temp_app_allowlist_duration_ms=20000,mms_temp_app_allowlist_duration_ms=60000,sms_temp_app_allowlist_duration_ms=20000,notification_allowlist_duration_ms=20000,wait_for_unlock=true</string>
 </resources>

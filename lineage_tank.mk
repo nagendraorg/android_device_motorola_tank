@@ -19,21 +19,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 TARGET_SUPPORTS_OMX_SERVICE := false
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from bronco device
-$(call inherit-product, device/motorola/bronco/device.mk)
+# Inherit from tank device
+$(call inherit-product, device/motorola/tank/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_bronco
-PRODUCT_DEVICE := bronco
+PRODUCT_NAME := lineage_tank
+PRODUCT_DEVICE := tank
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := ThinkPhone by motorola
+PRODUCT_MODEL := motorola edge 50
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    DeviceProduct="bronco_g" \
-    BuildDesc="bronco_g-user 16 W1TBS36H.1-63-2-4 ba01d-36f0a0 release-keys MW-413" \
-    BuildFingerprint="motorola/bronco_g/bronco:16/W1TBS36H.1-63-2-4/ba01d-36f0a0:user/release-keys"
+    DeviceProduct="tank_g" \
+    BuildDesc="tank_g-user 16 W1UWS36M-W1-ST18 2ac57 release-keys MW-329" \
+    BuildFingerprint="motorola/tank_g/msi:16/W1UWS36M-W1-ST18/2ac57:user/release-keys"

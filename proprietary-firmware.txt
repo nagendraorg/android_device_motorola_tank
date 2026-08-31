@@ -15,7 +15,6 @@ NON-HLOS.bin:modem.img;AB
 prov64.mbn:prov.img;AB
 qupfw.elf:qupfw.img;AB
 shrm.elf:shrm.img;AB
-spss1p.mbn:spss.img;AB
 storsec.mbn:storsec.img;AB
 tz.mbn:tz.img;AB
 uefi.elf:uefi.img;AB
