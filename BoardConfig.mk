@@ -25,6 +25,7 @@ TARGET_BOOTLOADER_BOARD_NAME := tank
 # Kernel
 TARGET_KERNEL_CONFIG += \
 	vendor/ext_config/moto-waipio-tank.config
+KERNEL_LTO := none
 
 # Partitions
 BOARD_MOT_DP_GROUP_SIZE := 9038725120 # ( BOARD_SUPER_PARTITION_SIZE - 4MB )
