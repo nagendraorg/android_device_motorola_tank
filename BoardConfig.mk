@@ -26,6 +26,8 @@ TARGET_BOOTLOADER_BOARD_NAME := tank
 TARGET_KERNEL_CONFIG += \
 	vendor/ext_config/moto-waipio-tank.config
 KERNEL_LTO := none
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_BOOTCONFIG += androidboot.selinux=permissive
 
 # Partitions
 BOARD_MOT_DP_GROUP_SIZE := 11165237248 # ( BOARD_SUPER_PARTITION_SIZE - 4MB )
