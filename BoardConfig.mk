@@ -22,6 +22,9 @@ include device/motorola/sm8475-common/BoardConfigCommon.mk
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := tank
 
+# DTB / DTBO
+TARGET_MERGE_DTBS_WILDCARD := diwali*base
+
 # Kernel
 TARGET_KERNEL_CONFIG += \
 	vendor/ext_config/moto-waipio-tank.config

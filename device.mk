@@ -47,7 +47,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths_diwali_qrd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_diwali/mixer_paths_diwali_qrd.xml \
     $(LOCAL_PATH)/configs/audio/resourcemanager_diwali_qrd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_diwali/resourcemanager_diwali_qrd.xml \
     $(LOCAL_PATH)/configs/audio/audio_ext_spkr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_ext_spkr.conf \
-    $(LOCAL_PATH)/configs/audio/usecaseKvManager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usecaseKvManager.xml
+    $(LOCAL_PATH)/configs/audio/usecaseKvManager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usecaseKvManager.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    $(LOCAL_PATH)/configs/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    $(LOCAL_PATH)/configs/audio/microphone_characteristics.xml:$(TARGET_COPY_OUT_VENDOR)/etc/microphone_characteristics.xml
 
 # Fingerprint
 PRODUCT_PACKAGES += \
